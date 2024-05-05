@@ -2396,6 +2396,9 @@ input, select, textarea {
     font-size: 20px; /* Adjust icon size */
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 .resume {
     display: inline-block;
@@ -2411,6 +2414,8 @@ input, select, textarea {
 .resume:hover {
     background-color: #baa0ba; /* Darker shade for hover effect */
 }
+
+
 
 
 /* first */		

@@ -57,17 +57,55 @@
 				});
 			});
 		});
+
+		document.addEventListener('DOMContentLoaded', function() {
+			const roleSpan = document.getElementById('role');
+			const roles = ['Engineer', 'Analyst'];
+			let currentRole = 0;
+			let currentChar = 0;
+			let currentText = '';
+			let deleting = false;
+		
+			function typeEffect() {
+				if (deleting) {
+					if (currentText.length > 0) {
+						// Remove character
+						currentText = currentText.substring(0, currentText.length - 1);
+						roleSpan.textContent = "Aspiring Data " + currentText;
+					} else {
+						// Once text is deleted, switch to typing mode
+						deleting = false;
+						currentRole = (currentRole + 1) % roles.length;
+						currentChar = 0;
+					}
+				} else {
+					if (currentChar < roles[currentRole].length) {
+						// Add character
+						currentText += roles[currentRole][currentChar];
+						roleSpan.textContent = "Aspiring Data " + currentText;
+						currentChar++;
+					} else {
+						// Once text is complete, switch to deleting mode
+						deleting = true;
+					}
+				}
+			}
+		
+			// Start the typewriter effect, adjust interval to speed up or slow down the effect
+			setInterval(typeEffect, 200); // Speed of typing
+		});
+		
 		
 		function toggleText(id) {
-			var moreText = document.getElementById("more" + id);
-			var btnText = document.querySelector(`.project-card:nth-child(${id}) button`);
+			var moreText = document.getElementById('more' + id);
+			var btnText = document.getElementById('button' + id);
 		
-			if (moreText.style.display === "none") {
-				moreText.style.display = "inline";
-				btnText.textContent = "Read Less";
+			if (moreText.style.display === "none" || moreText.style.display === "") {
+				moreText.style.display = "inline"; // Shows the extended content
+				btnText.textContent = 'Read Less'; // Changes button text to 'Read Less'
 			} else {
-				moreText.style.display = "none";
-				btnText.textContent = "Read More";
+				moreText.style.display = "none"; // Hides the extended content
+				btnText.textContent = 'Read More'; // Changes button text back to 'Read More'
 			}
 		}
 		
