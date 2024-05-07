@@ -2400,94 +2400,176 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Resume Button */
 .resume {
     display: inline-block;
-    background-color: #a980c2; /* Change the color to suit your design */
+    background-color: #a980c2;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s;
+    text-align: center;
+    white-space: nowrap; /* Ensure text doesn't wrap */
 }
 
 .resume:hover {
     background-color: #baa0ba; /* Darker shade for hover effect */
 }
 
+/* Learn More Button */
+.learnmore {
+    display: inline-block;
+    background-color: #a980c2;
+    color: white;
+    padding: 10px 20px; /* Same padding as .resume */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-align: center;
+    white-space: nowrap; /* Prevent wrapping to the next line */
+}
 
+.learnmore:hover {
+    background-color: #baa0ba; /* Darker shade for hover effect */
+}
 
 
 /* first */		
+/* General styles */
 .info-container {
     display: flex;
-    justify-content: space-around; /* Evenly spaces the cards */
-    padding: 20px;
+    flex-direction: column; /* Stack the cards vertically */
+    justify-content: center; /* Center align the content */
+    align-items: center;
+    padding: 10px; /* Reduced padding for smaller screens */
 }
 
 .card {
     background: #FFF;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    width: 45%; /* Adjust width to manage space between cards */
-    margin: 10px;
+    padding: 15px; /* Reduced padding for mobile view */
+    width: 90%; /* Cards should fill most of the screen width */
+    margin: 10px 0; /* Reduced vertical margin for better stacking */
     text-align: left;
 }
 
 .card h2 {
-    font-size: 26px; /* Increased further for headings */
+    font-size: 22px; /* Reduced font size for smaller screens */
     color: #333;
-    margin-bottom: 10px; /* Ensures space below the heading */
+    margin-bottom: 8px; /* Adjusted margin for headings */
 }
 
 .card h4 {
-    font-size: 20px; /* Further increased for better readability */
+    font-size: 18px; /* Reduced for better readability */
     color: #666;
-    margin: 10px 0; /* Slightly increased margin for better spacing */
-	text-align: left;
+    margin: 8px 0; /* Adjusted for spacing */
+    text-align: left;
 }
 
 .bio {
-    padding: 20px;
-    font-size: 20px; /* Increased for the main bio text */
-    line-height: 1.8; /* Line height adjusted for readability */
-    text-align: justify; /* Ensures the text is evenly justified */
+    padding: 15px; /* Reduced padding for smaller screens */
+    font-size: 18px; /* Slightly smaller font size */
+    line-height: 1.6; /* Adjusted for readability */
+    text-align: justify;
 }
 
 .bio h4 {
-    margin: 15px 0; /* Increased margin for better visual separation */
-	text-align: left;
+    margin: 12px 0; /* Reduced for better visual separation */
+    text-align: left;
 }
 
 .card:hover {
-    background-color: #f4f4f4; /* Light gray background on hover */
+    background-color: #f4f4f4; /* Maintain hover effect */
 }
 
 
 
 /*third*/
+/* Projects Container - Desktop and Mobile Responsive */
 .projects-container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping of projects */
+    justify-content: space-between; /* Evenly space projects on desktop */
+    padding: 10px;
 }
 
+/* Project Card - General Styles */
 .project-card {
-    flex-basis: 30%;
+    flex-basis: 30%; /* Occupy about a third of the container width on desktop */
+    max-width: 30%; /* Limit to 30% for uniform sizing */
+    height: 350px; /* Set a fixed height for all cards */
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 10px;
     border-radius: 8px;
     background: #fff;
-    transition: background-color 0.3s; /* Smooth transition for background color */
+    transition: background-color 0.3s;
+    text-align: center; /* Center the content */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space evenly */
+    overflow: hidden; /* Prevent content from spilling out */
 }
 
 .project-card:hover {
-    background-color: #f4f4f4; /* Light gray background on hover */
+    background-color: #f4f4f4;
 }
 
-.more {
-    display: none;
+/* Image Carousel */
+.image-carousel {
+    width: 100%; /* Full width of the card */
+    max-height: 150px; /* Limit the image height */
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.carousel-image {
+    width: 100%;
+    display: none; /* Hide all images initially */
+}
+
+.carousel-image.visible {
+    display: block; /* Show the active image */
+}
+
+h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Links */
+.project-card a {
+    text-decoration: none;
+    color: #0066cc;
+    margin: 5px;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column; /* Stack cards vertically */
+    }
+
+    .project-card {
+        flex-basis: 90%; /* Occupy nearly full width on mobile */
+        max-width: 100%; /* Remove any maximum width constraint */
+        margin: 10px 0; /* Adjust vertical margins */
+        height: auto; /* Set to auto for variable heights on mobile */
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 18px; /* Adjust heading size */
+    }
+
+    .project-card a {
+        font-size: 16px; /* Adjust link font size */
+    }
 }
 
 /*CONTACT*/
