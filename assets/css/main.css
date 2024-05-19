@@ -2513,6 +2513,8 @@ html {
     flex-direction: column;
     justify-content: space-between; /* Distribute space evenly */
     overflow: hidden; /* Prevent content from spilling out */
+	max-height: 400px; /* Set to the desired fixed height */
+    overflow-y: scroll; /* Enables vertical scrolling */
 }
 
 .project-card:hover {
